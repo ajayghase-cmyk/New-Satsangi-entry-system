@@ -14,11 +14,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # actions/checkout@v4.2.1
-      - uses: actions/checkout@eef6142e7c696aee0160e113a700126a0da61451
+      # actions/checkout@v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       
-      # actions/setup-node@v4.1.0
-      - uses: actions/setup-node@0ad4b8fadaa221f088421128c7358ed136952817
+      # actions/setup-node@v4.2.0
+      - uses: actions/setup-node@3932cf9a7477a39d047bd216f584e01e4a055d04
         with:
           node-version: 20
           cache: 'npm'
