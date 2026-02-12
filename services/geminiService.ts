@@ -4,7 +4,9 @@ import { Visitor, AIInsight } from "../types";
 export const generateVisitorInsights = async (visitors: Visitor[]): Promise<AIInsight[]> => {
   if (visitors.length === 0) return [];
   
-  const apiKey = process.env.API_KEY;
+  // Safe way to check for API Key in Vite environment
+  const apiKey = (import.meta as any).env?.VITE_API_KEY || (process as any).env?.API_KEY;
+  
   if (!apiKey) {
     console.warn("Gemini API Key missing. Insights disabled.");
     return [];
