@@ -1,11 +1,16 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { Visitor, AIInsight } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export const generateVisitorInsights = async (visitors: Visitor[]): Promise<AIInsight[]> => {
   if (visitors.length === 0) return [];
+  
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) {
+    console.warn("Gemini API Key missing. Insights disabled.");
+    return [];
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
 
   const visitorSummary = visitors.slice(0, 10).map(v => ({
     name: v.name,
