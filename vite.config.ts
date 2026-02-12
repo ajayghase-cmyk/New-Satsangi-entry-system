@@ -5,12 +5,10 @@ export default defineConfig({
   plugins: [react()],
   base: './',
   define: {
-    // This ensures process.env.API_KEY is available during build and at runtime
-    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || '')
+    'process.env': {}
   },
   build: {
     outDir: 'dist',
-    emptyOutDir: true,
-    sourcemap: false
+    emptyOutDir: true
   }
 });
