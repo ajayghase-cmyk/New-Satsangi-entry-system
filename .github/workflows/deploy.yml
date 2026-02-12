@@ -14,11 +14,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Pinned to v4.2.2
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      # actions/checkout@v4.2.1
+      - uses: actions/checkout@eef6142e7c696aee0160e113a700126a0da61451
       
-      # Pinned to v4.2.0
-      - uses: actions/setup-node@3932cf9a7477a39d047bd216f584e01e4a055d04
+      # actions/setup-node@v4.1.0
+      - uses: actions/setup-node@0ad4b8fadaa221f088421128c7358ed136952817
         with:
           node-version: 20
           cache: 'npm'
@@ -26,7 +26,7 @@ jobs:
       - run: npm install
       - run: npm run build
       
-      # Pinned to v3.0.1
+      # actions/upload-pages-artifact@v3.0.1
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dee9962f33a1
         with:
           path: ./dist
@@ -37,6 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      # Pinned to v4.0.5
+      # actions/deploy-pages@v4.0.5
       - id: deployment
         uses: actions/deploy-pages@d6db90164ad5ee868d735c01042f1ec4357283b9
